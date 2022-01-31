@@ -1,6 +1,6 @@
 import pandas as pd
 from apply_sql_template import apply_sql_template
-from engines.conns import Thor, Odin
+from engines.not_conns import Thor, Odin
 from sql.test_tbl_sql import select_all_messages
 
 
