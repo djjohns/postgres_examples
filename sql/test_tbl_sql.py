@@ -35,3 +35,7 @@ DROP VIEW IF EXISTS {{ view_name }};
 ## NON TEMPLMENTED SQL!
 # Select all from a table.
 select_all_messages = '''SELECT * FROM messages'''
+
+
+# Drops test tables from Odin.
+drop_test_table = f'''DROP TABLE IF EXISTS test_tbl;'''

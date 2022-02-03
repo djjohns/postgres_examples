@@ -10,7 +10,7 @@ def quote_sql_string(value):
     '''
     if isinstance(value, string_types):
         new_value = str(value)
-        new_value = new_value.replace("'", "''")
+        new_value = new_value.replace("'", " ")
         return "'{}'".format(new_value)
     return value
 
@@ -41,4 +41,5 @@ if __name__== "__main__":
         'src_tbl': 'messages',
     }
     sql = apply_sql_template(template, params)
-    print(sql)
+    
+    print(sql.replace("'", ""))

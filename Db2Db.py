@@ -1,7 +1,7 @@
 import pandas as pd
 from apply_sql_template import apply_sql_template
-from engines.not_conns import Thor, Odin
-from sql.test_tbl_sql import select_all_messages
+from engines.conns import Thor, Odin
+from sql.test_tbl_sql import select_all_messages, select_all
 
 
 class Db2Db():
@@ -18,15 +18,16 @@ class Db2Db():
 
 
 if __name__ == '__main__':
-    #TODO: Currently returns 'messages' and not messages.
-    # params = {
+    params = {
     
-    #     'src_tbl': 'messages',
-    #     'view_name': 'top_10_messages'
-    # }
+        'src_tbl': 'messages',
+        'view_name': 'top_10_messages'
+    }
 
 
-    # sql = apply_sql_template(select_all, params)
-    # print(sql)
-    # Db2Db(Thor, sql, 'test_tbl', Odin, 5000)
-    Db2Db(Thor, select_all_messages, 'test_tbl', Odin, 5000)
+    sql = apply_sql_template(select_all, params)
+    print(sql)
+    format_sql = sql.replace("'", "")
+    print(format_sql)
+    Db2Db(Thor, format_sql, 'test_tbl', Odin, 5000)
+    # Db2Db(Thor, select_all_messages, 'test_tbl', Odin, 5000)
